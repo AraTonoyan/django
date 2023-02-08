@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Product{% endblock %}
+{% block content %}
+<!-- Page Content -->
+
+
+<div class="page-heading products-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {% for i in productPageHead %}
+                <div class="text-content">
+                    <h4>{{ i.redTitle }}</h4>
+                    <h2>{{ i.whiteTitle }}</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="filters">
+                    <ul>
+                        <li class="active" data-filter="*">All Products</li>
+                        <li data-filter=".des">Featured</li>
+                        <li data-filter=".dev">Flash Deals</li>
+                        <li data-filter=".gra">Last Minute</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="filters-content">
+                    <div class="row grid">
+<!--                        -->
+                        {% for i in products %}
+                        <div class="col-lg-4 col-md-4 all des">
+                            <div class="product-item">
+                                <a href="#"><img height="160px" src="{{ i.img.url }}" alt="Product"></a>
+                                <div class="down-content">
+                                    <a href="#"><h4>{{ i.name }}</h4></a>
+                                    <h6>${{ i.price }}</h6>
+                                    <p>{{ i.short_description }}</p>
+                                    <span>Reviews (12)</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+<!--                        -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--anun, nkaragrutyun, gin, nkar-->
+{% endblock %}
